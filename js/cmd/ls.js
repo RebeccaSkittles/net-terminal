@@ -19,6 +19,9 @@ export default function ls(args, addOutput) {
                 } else {
                     addOutput(`Total space used: ${totalSizeKB} KB`);
                 }
+            } else if (args.length === 3 && args[1] === '-l' && args[2] === '-r') {
+                localStorage.removeItem('storageLimitKB');
+                addOutput('Storage limit removed');
             } else if (args.length === 3 && args[1] === '-l') {
                 const limitKB = parseFloat(args[2]);
                 if (!isNaN(limitKB)) {
@@ -27,9 +30,6 @@ export default function ls(args, addOutput) {
                 } else {
                     addOutput('Usage: ls space -l [amountinkb]');
                 }
-            } else if (args.length === 3 && args[1] === '-l' && args[2] === '-r') {
-                localStorage.removeItem('storageLimitKB');
-                addOutput('Storage limit removed');
             } else {
                 addOutput('Usage: ls space [-l [amountinkb] | -l -r]');
             }
