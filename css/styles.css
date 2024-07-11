@@ -1,0 +1,49 @@
+:root {
+    --terminal-color: green; /* Default terminal font color */
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: var(--terminal-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid var(--terminal-color);
+    white-space: pre-wrap; /* This ensures that line breaks are preserved */
+    word-wrap: break-word; /* This allows long words to be broken and wrapped onto the next line */
+}
+
+.input-line {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--terminal-color);
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--terminal-color);
+    font-family: monospace;
+    outline: none;
+}
